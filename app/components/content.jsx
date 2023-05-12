@@ -5,12 +5,22 @@ import { db } from '@/firebase/firebase'
 import { collection, doc, updateDoc, onSnapshot, increment } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
 import useGetDataUser from '../api/useGetDataUser';
+import { useAuth } from '@/firebase/auth';
+import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2'
 export default function Content() {
+    const { authUser, isLoading } = useAuth()
+
+    const router = useRouter()
+    useEffect(() => {
+        if (!isLoading && !authUser) {
+            router.push("/login")
+        }
+    }, [authUser, isLoading])
 
     const currentUser = getAuth()
 
-    console.log(currentUser?.currentUser?.uid)
+
 
     const [data, setData] = useState([])
     const collectionRef = collection(db, "user")
@@ -27,7 +37,9 @@ export default function Content() {
         getData();
     }, []);
 
-    const choosenUser = data.filter((item) => item.uid == currentUser.currentUser.uid)
+    const choosenUser = data.filter((item) => item.uid === currentUser?.currentUser?.uid);
+    console.log(currentUser?.currentUser?.uid)
+
 
     const handleVote = async (id) => {
         const voteRef = doc(db, "candidates", id)
@@ -64,7 +76,7 @@ export default function Content() {
                                 <div className="font-bold text-xl mb-2">{item.nama}</div>
                                 <p className="text-gray-700 text-base">Visi : {item.visi}</p>
                                 {
-                                    choosenUser[0].isVoted ? (
+                                    choosenUser.length > 0 && choosenUser[0].isVoted ? (
                                         <div>
                                             <p className='bg-blue-600 mt-3 px-3 text-center text-white rounded-xl'>Jumlah Vote : {item.jumlah}</p>
                                             <button onClick={() => handleVote(item.id)} disabled className="bg-gray-200 mt-3 cursor-not-allowed text-black font-bold py-2 px-4 rounded">
@@ -84,34 +96,8 @@ export default function Content() {
                         </div>
                     ))}
 
-
-
                 </div>
             </div>
-
-            {/* {choosenUser[0].isVoted ? (
-                <div className='container mx-auto flex gap-4 justify-center'>
-                    {candidatesData.map(data => (
-                        <div class="max-w-sm rounded overflow-hidden shadow-lg" key={data.id}>
-                            <img class="w-full" src={data.imageUrl} alt="Card Image" />
-                            <div class="px-6 py-4">
-                                <div class="font-bold text-xl mb-2">{data.nama}</div>
-                                <p class="text-gray-700 text-base">Nomor Paslon : {data.nomor}</p>
-                            </div>
-                            <div class="px-6 py-4">
-                                <button class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded">
-                                    Jumlah Vote : {data.jumlah} vote
-                                </button>
-                            </div>
-                        </div>
-
-                    ))}
-                </div>
-            ) : (
-                <div></div>
-            )
-
-            } */}
         </>
     )
 }

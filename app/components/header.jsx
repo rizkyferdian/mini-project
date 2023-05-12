@@ -10,8 +10,8 @@ function Header() {
                 </p>
                 <p className='text-center text-gray-600 font-light mt-6'>MyVote, inovasi terbaru dalam dunia pemilihan online, mempermudah proses voting bagi siapa pun. Dengan menggunakan MyVote, partisipan dapat dengan mudah mengungkapkan suara mereka dalam hitungan detik.
                 </p>
-                <div class="w-3/4 container mx-auto mt-10 rounded-full">
-                    <img src="banner.png" class="object-contain w-full h-full" alt="Gambar" />
+                <div className="w-3/4 container mx-auto mt-10 rounded-full">
+                    <img src="banner.png" className="object-contain w-full h-full" alt="Gambar" />
                 </div>
 
             </section>
