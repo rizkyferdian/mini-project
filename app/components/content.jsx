@@ -9,7 +9,7 @@ import { useAuth } from '@/firebase/auth';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2'
 export default function Content() {
-    const { authUser, isLoading } = useAuth()
+    const { authUser, isLoading, signOut } = useAuth()
 
     const router = useRouter()
     useEffect(() => {

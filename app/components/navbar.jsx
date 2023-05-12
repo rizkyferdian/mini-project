@@ -1,6 +1,10 @@
+"use client"
 import React from 'react'
 import Link from 'next/link';
+
+import { useAuth } from '@/firebase/auth';
 function Navbar() {
+    const { signOut } = useAuth()
     return (
         <nav className="flex items-center justify-between flex-wrap p-6">
             <div className="flex items-center flex-shrink-0 text-black mr-6">
@@ -24,6 +28,9 @@ function Navbar() {
                     </a>
                 </div>
             </div>
+            <button onClick={signOut}>
+                Logout
+            </button>
         </nav>
     )
 }
