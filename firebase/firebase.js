@@ -2,14 +2,17 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth"
 import { getFirestore } from "firebase/firestore"
 import { getStorage } from "firebase/storage";
+
 const firebaseConfig = {
-    apiKey: "AIzaSyCXzTujEdb6HRfLwkQj7ke8gEnCdHz85PY",
-    authDomain: "vote-app-a879f.firebaseapp.com",
-    projectId: "vote-app-a879f",
-    storageBucket: "vote-app-a879f.appspot.com",
-    messagingSenderId: "75363450550",
-    appId: "1:75363450550:web:14a8540522ebce6c84f017"
+    apiKey: "AIzaSyBchnvQznyoReVJ72ftz6oR_w1vljydcf4",
+    authDomain: "mini-project-e95d0.firebaseapp.com",
+    projectId: "mini-project-e95d0",
+    storageBucket: "mini-project-e95d0.appspot.com",
+    messagingSenderId: "983411605508",
+    appId: "1:983411605508:web:ab8adbbababa44329eb551",
+    measurementId: "G-FY0JPZ4C39"
 };
+
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)

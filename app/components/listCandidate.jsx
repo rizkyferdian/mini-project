@@ -20,7 +20,6 @@ export default function ListCandidate() {
         )
     }
 
-
     const handleRoute = () => {
         setIsLoading(true)
         setTimeout(() => {
@@ -60,7 +59,7 @@ export default function ListCandidate() {
                                         Delete
                                     </button>
                                     <Link href={`/dashboard/${item.id}`}>
-                                        <button onClick={handleRoute} class="bg-blue-500 ml-1 hover:bg-blue-700 text-white  px-2 rounded-full">
+                                        <button onClick={handleRoute} className="bg-blue-500 ml-1 hover:bg-blue-700 text-white  px-2 rounded-full">
                                             {isLoading ? <Loader /> : "Edit"}
                                         </button>
                                     </Link>

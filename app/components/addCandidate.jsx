@@ -58,12 +58,12 @@ export default function AddCandidate() {
 
     return (
         <>
-            <div class="w-full max-w-sm mx-auto">
+            <div className="w-full max-w-sm mx-auto">
                 <div className='justify-center mt-6'>
                     <p className='text-xl text-center font-bold '>Tambah Data</p>
                 </div>
                 <form onSubmit={addCandidate} className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
-                    <div class="mb-4">
+                    <div className="mb-4">
                         <label htmlFor="nomor" className='block text-gray-700 text-sm font-bold mb-2'>Nomor:</label>
                         <input type="number" id="nomor" name="nomor"
                             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
@@ -71,7 +71,7 @@ export default function AddCandidate() {
                             onChange={e => setNomor(e.target.value)}
                         />
                     </div>
-                    <div class="mb-4">
+                    <div className="mb-4">
                         <label htmlFor="nama" className='block text-gray-700 text-sm font-bold mb-2'>Nama:</label>
                         <input type="text" id="nama" name="nama"
                             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
@@ -79,7 +79,7 @@ export default function AddCandidate() {
                             onChange={e => setNama(e.target.value)}
                         />
                     </div>
-                    <div class="mb-4">
+                    <div className="mb-4">
                         <label htmlFor="visi" className='block text-gray-700 text-sm font-bold mb-2'>Visi:</label>
                         <textarea id="visi" name="visi"
                             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
@@ -87,7 +87,7 @@ export default function AddCandidate() {
                             onChange={e => setVisi(e.target.value)}
                         ></textarea>
                     </div>
-                    <div class="mb-4">
+                    <div className="mb-4">
                         <label htmlFor="jumlah" className='block text-gray-700 text-sm font-bold mb-2'>Jumlah:</label>
                         <input type="number" disabled id="jumlah" name="jumlah"
                             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
